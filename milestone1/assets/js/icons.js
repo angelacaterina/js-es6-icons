@@ -28,24 +28,36 @@ $(document).ready(function () {
     new icone("user-secret", "fas", "fa-user-secret", "users"),
   ];
   console.log(Icone);
+
   // 2. Semezioniamo il container icons
-  const container = document.getElementById('icons');
-  // const container = $('.icons'); //non funziona
+  const container = document.querySelector('.icons');
 
   // 3. inseriamo le icone nel container (possiamo creare una funzione tipo print() per inserire gli elementi e richiamarla qui)
-  Icone.forEach(icon => {
-    const markup = `
-    <div>
-      <i class="${icon.prefix} ${icon.type}"></i>
-      <div class="title">${icon.name.toUpperCase()}</div>
-    </div>
-    `;
-    container.insertAdjacentHTML('beforeend', markup);
-  });
+  printIcons(Icone,container);
+
 });
 
 
 /* ---- FUNCTIONS ----*/
 // Creiamo una funzione per iterare nell'array e che appenda al container le icone.
-// tip: possiamo usare un ciclo foreach qui e destrutturare li le proprieta degli elementi di un array
-// tip: il template literal ci puo aiutare con il markup
+
+/**
+* Stampare icone in un determinato container
+* @param {array} array - un array di icone
+* @param {Element} container - il tag html
+*/
+function printIcons(array,container){
+  array.forEach(icon => {
+    // tip: possiamo usare un ciclo foreach qui e destrutturare li le proprieta degli elementi di un array
+    const {name, prefix, type} = icon;
+
+    // tip: il template literal ci puo aiutare con il markup
+    const markup = `
+      <div>
+        <i class="${prefix} ${type}" style="color:black"></i>
+        <div class="title">${name.toUpperCase()}</div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', markup);
+  });
+}
