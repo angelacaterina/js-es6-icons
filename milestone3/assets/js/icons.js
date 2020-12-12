@@ -62,8 +62,14 @@ $(document).ready(function () {
     const iconFilter = newIcone.filter(icon => icon.family === scelta);
     console.log(iconFilter);
 
-    container.innerHTML = "";
-    printIcons(iconFilter, container);
+    if(scelta === ""){
+      container.innerHTML = "";
+      printIcons(newIcone, container);
+    }else{
+      container.innerHTML = "";
+      printIcons(iconFilter, container);
+    }
+    
   })
   .change();
 
