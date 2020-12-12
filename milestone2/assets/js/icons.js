@@ -28,8 +28,10 @@ $(document).ready(function () {
     new icone("user-secret", "fas", "fa-user-secret", "users"),
   ];
   console.log(Icone);
-
-  const container = document.getElementById('icons');
+  /** milestone 1
+  const container = document.querySelector('.icons');
+  printIcons(Icone,container);
+  **/
 
   //2. definiamo dei colori per le icone (blue, orange, purple)
   const blue = "#5c85d6";
@@ -42,27 +44,42 @@ $(document).ready(function () {
       ...icon,
       "color": (icon.family === 'animals') ? blue : (icon.family === 'fruits') ? orange : purple,
     }
-
   });
+  console.log(newIcone);
 
   //4. inseriamo le icone colorate nel container
-  newIcone.forEach(icon => {
-    const markup = `
-    <div>
-      <i class="${icon.prefix} ${icon.type}" style="color:${icon.color}"></i>
-      <div class="title">${icon.name.toUpperCase()}</div>
-    </div>
-    `;
-    container.insertAdjacentHTML('beforeend', markup);
-  });
-});
+  const container = document.querySelector('.icons');
 
+  printIcons(newIcone, container);
+
+});
 
 /* ---- FUNCTIONS ----*/
 //1. Funzione milestone 1
 
+/**
+* Stampare icone in un determinato container
+* @param {array} array - un array di icone
+* @param {Element} container - il tag html
+*/
+function printIcons(array,container){
+  array.forEach(icon => {
+    const {name, prefix, type, color} = icon;
+    
+    const markup = `
+    <div>
+      <i class="${prefix} ${type}" style="color:${color}"></i>
+      <div class="title">${name.toUpperCase()}</div>
+    </div>
+    `;
+    container.insertAdjacentHTML('beforeend', markup);
+  });
+}
+
 //2. funzione per assegnare un colore ad un icona
 // tip: possiamo invocare qui dentro un'altra funzione (2) oppure usare map
+/**riga 42**/
 
 //3. funzione per ottenere da un array
 // tip: possiamo usarla nella funzione precedente oppure usare map senza creare questa funzione.
+/**riga 42**/
