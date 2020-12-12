@@ -37,7 +37,6 @@ $(document).ready(function () {
 
 });
 
-
 /* ---- FUNCTIONS ----*/
 // Creiamo una funzione per iterare nell'array e che appenda al container le icone.
 

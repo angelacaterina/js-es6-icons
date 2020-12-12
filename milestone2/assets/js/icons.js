@@ -28,6 +28,7 @@ $(document).ready(function () {
     new icone("user-secret", "fas", "fa-user-secret", "users"),
   ];
   console.log(Icone);
+  
   /** milestone 1
   const container = document.querySelector('.icons');
   printIcons(Icone,container);
@@ -49,7 +50,6 @@ $(document).ready(function () {
 
   //4. inseriamo le icone colorate nel container
   const container = document.querySelector('.icons');
-
   printIcons(newIcone, container);
 
 });
@@ -65,7 +65,7 @@ $(document).ready(function () {
 function printIcons(array,container){
   array.forEach(icon => {
     const {name, prefix, type, color} = icon;
-    
+
     const markup = `
     <div>
       <i class="${prefix} ${type}" style="color:${color}"></i>
