@@ -69,10 +69,9 @@ $(document).ready(function () {
       container.innerHTML = "";
       printIcons(iconFilter, container);
     }
-    
-  })
-  .change();
 
+  })
+  
   printIcons(newIcone, container);
 
 });
